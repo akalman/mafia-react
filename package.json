@@ -1,0 +1,23 @@
+{
+  "name": "mafia-react",
+  "version": "0.10.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akalman/mafia-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akalman/mafia-react/issues"
+  },
+  "homepage": "https://github.com/akalman/mafia-react#readme",
+  "dependencies": {
+    "@types/react": "^15.0.12",
+    "@types/react-redux": "^4.4.36"
+  }
+}

@@ -5,6 +5,7 @@
 
         "alwaysStrict": true,
         "jsx": "React",
+        "module": "commonjs",
         "newLine": "lf",
         "noImplicitAny": true,
         "noImplicitReturns": true,

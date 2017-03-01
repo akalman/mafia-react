@@ -1,16 +1,16 @@
 {
     "compilerOptions": {
-    	"target": "ES6",
-    	"outDir": "output",
+        "target": "ES5",
+        "outDir": "output",
 
-    	"alwaysStrict": true,
-    	"jsx": "React",
-    	"newLine": "lf",
-    	"noImplicitAny": true,
-    	"noImplicitReturns": true,
-    	"strictNullChecks": true
+        "alwaysStrict": true,
+        "jsx": "React",
+        "newLine": "lf",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "strictNullChecks": true
     },
     "include": [
-    	"src/**/*"
+        "src/**/*"
     ]
 }

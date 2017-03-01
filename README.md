@@ -24,7 +24,8 @@
 1. build
    
    ```
-   yarn build
+   yarn build #there is a bug with yarn v18 causing this command to hang, use the one below
+   npm run build
    ```
 1. start server
    

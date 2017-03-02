@@ -1,3 +1,5 @@
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: './src/client/main.tsx',
     output: {
@@ -15,4 +17,10 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Mafia',
+            template: '!!html-loader!src/client/index.html'
+        })
+    ]
 }

@@ -6,10 +6,7 @@
   "scripts": {
     "prebuild": "rm -rf output",
     "build": "yarn webpack-server && yarn webpack-client",
-    "postbuild": "cp -r src/client output",
-
     "start": "node output/server.js",
-
     "webpack-server": "webpack --config webpack.server.config.js",
     "webpack-client": "webpack --config webpack.client.config.js"
   },
@@ -29,11 +26,13 @@
     "@types/react": "^15.0.12",
     "@types/react-dom": "^0.14.23",
     "express": "^4.14.1",
+    "html-webpack-plugin": "^2.28.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "redux": "^3.6.0"
   },
   "devDependencies": {
+    "html-loader": "^0.4.5",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1"

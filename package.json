@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp -r src/client output && webpack",
-    "start": "node output/server.js"
+    "prebuild": "rm -rf output",
+    "build": "yarn webpack-server && yarn webpack-client",
+    "postbuild": "cp -r src/client output",
+
+    "start": "node output/server.js",
+
+    "webpack-server": "webpack --config webpack.server.config.js",
+    "webpack-client": "webpack --config webpack.client.config.js"
   },
   "repository": {
     "type": "git",
@@ -25,7 +31,11 @@
     "express": "^4.14.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "redux": "^3.6.0",
-    "ts-loader": "^2.0.1"
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "ts-loader": "^2.0.1",
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1"
   }
 }

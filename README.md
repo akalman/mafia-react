@@ -6,7 +6,7 @@
 1. install global dependencies
    
    ```
-   npm install -g yarn typescript webpack
+   npm install -g yarn
    ```
 1. clone repository
    
@@ -20,7 +20,6 @@
    
    ```
    yarn
-   npm link typescript
    ```
 1. build
    

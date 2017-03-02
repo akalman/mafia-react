@@ -2,7 +2,7 @@ module.exports = {
     entry: './src/client/main.tsx',
     output: {
         path: 'output/client',
-        filename: '[name].js'
+        filename: 'main.js'
     },
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']

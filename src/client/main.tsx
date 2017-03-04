@@ -8,6 +8,8 @@ import State from './state/State';
 import { Provider } from 'react-redux';
 import App from './components/app/AppAdapter';
 
+require('./main.less');
+
 let store = createStore<State>(mafiaApp, {
     page: 'login'
 });

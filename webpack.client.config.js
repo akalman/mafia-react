@@ -1,4 +1,7 @@
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+let extractLessPlugin = new ExtractTextPlugin('output/client/main.css');
 
 module.exports = {
     entry: './src/client/main.tsx',
@@ -14,6 +17,13 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
+            },
+            {
+                test: /\.less$/,
+                loader: extractLessPlugin.extract({
+                    loader: 'css-loader!less-loader',
+                    fallbackLoader: 'style-loader'
+                })
             }
         ]
     },
@@ -21,6 +31,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Mafia',
             template: '!!html-loader!src/client/index.html'
-        })
+        }),
+        extractLessPlugin
     ]
 }

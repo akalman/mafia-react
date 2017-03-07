@@ -16,13 +16,16 @@ export default class LoginPage
     render() {
         return (
             <div className="login-page">
-                <div>
+                <div className="create-room-button">
                     <button onClick={this.createRoom}>Create Room</button>
                 </div>
-                <div>
+                <div className="login-box">
+                    <span className="login-box-title">Join Existing Game</span>
                     <label>Username: <input type="text" /></label>
                     <label>Room Code <input type="text" /></label>
-                    <button onClick={this.login}>Login</button>
+                    <div className="login-button-container">
+                        <button className="login-button" onClick={this.login}>Login</button>
+                    </div>
                 </div>
             </div>
         );

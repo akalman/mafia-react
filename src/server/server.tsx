@@ -29,7 +29,9 @@ db.put(
         Item: {
             GameId: '12345',
             some: 'shit here 2',
-            howMuch: 9001
+            howMuch: 9001,
+            testList: ['first item', 2, '3rd item']
         }
     },
-    (err, data) => console.log('wrote stuff to aws'));
+    (err, data) => console.log('wrote stuff to aws')
+);

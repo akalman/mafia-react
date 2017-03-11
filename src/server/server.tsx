@@ -19,7 +19,9 @@ wss.on('connection', (ws) => {
     ws.send('something');
 });
 
-app.listen(3000);
+server.listen(80, function listening() {
+  console.log('Listening on %d', server.address().port);
+});
 
 aws.config.update({ region: "us-west-2" });
 let db = new aws.DynamoDB.DocumentClient();

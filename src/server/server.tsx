@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as path from 'path';
 import * as http from 'http';
 import * as WebSocket from 'ws';
+import * as aws from 'aws-sdk';
 import * as url from 'url';
 
 var app = express();
@@ -19,3 +20,16 @@ wss.on('connection', (ws) => {
 });
 
 app.listen(3000);
+
+aws.config.update({ region: "us-west-2" });
+let db = new aws.DynamoDB.DocumentClient();
+db.put(
+    {
+        TableName: 'mafia-react-dev-adam',
+        Item: {
+            GameId: '12345',
+            some: 'shit here 2',
+            howMuch: 9001
+        }
+    },
+    (err, data) => console.log('wrote stuff to aws'));

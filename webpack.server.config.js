@@ -13,7 +13,8 @@ module.exports = {
     },
     externals: {
         express: 'commonjs express',
-        ws: 'commonjs ws'
+        ws: 'commonjs ws',
+        'aws-sdk': 'commonjs aws-sdk'
     },
     module: {
         loaders: [

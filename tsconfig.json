@@ -9,7 +9,14 @@
         "newLine": "lf",
         "noImplicitAny": true,
         "noImplicitReturns": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+
+        "lib": [
+            "dom",
+            "es5",
+            "scripthost",
+            "es2015.promise"
+        ]
     },
     "include": [
         "src/**/*"

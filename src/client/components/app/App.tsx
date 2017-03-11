@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import AppProps from './AppProps';
 import TestComponent from '../testComponent/TestComponent';
-import LoginPage from '../loginPage/LoginPage';
+import LoginPage from '../loginPage/LoginPageAdapter';
 
 export default class App
         extends React.Component<AppProps, any> {

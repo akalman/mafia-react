@@ -11,6 +11,7 @@ import App from './components/app/AppAdapter';
 require('./main.less');
 
 let store = createStore<State>(mafiaApp, {
+    playerid: '' + Math.random(),
     page: 'login'
 });
 

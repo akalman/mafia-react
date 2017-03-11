@@ -11,12 +11,10 @@ const wss = new WebSocket.Server({ server });
 
 app.use(express.static(path.join(__dirname, 'client')))
 
-wss.on('connection', (ws) => {
-    ws.on('message', (message) => {
+wss.on('connection', ws => {
+    ws.on('message', message => {
         console.log('received: %s', message);
     });
-
-    ws.send('something');
 });
 
 server.listen(80, function listening() {

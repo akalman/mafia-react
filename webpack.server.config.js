@@ -1,21 +1,9 @@
-let fs = require('fs');
-
-let nodeModules = {};
-fs.readdirSync('node_modules')
-    .filter(function(x) {
-        return ['.bin'].indexOf(x) === -1;
-    })
-    .forEach(function(mod) {
-        nodeModules[mod] = 'commonjs ' + mod;
-    });
-
 module.exports = {
     target: 'node',
     node: {
         __dirname: false
     },
-
-    entry: './src/server.tsx',
+    entry: './src/server/server.tsx',
     output: {
         path: 'output',
         filename: 'server.js'
@@ -24,7 +12,8 @@ module.exports = {
         extensions: ['.ts', '.tsx']
     },
     externals: {
-        express: 'commonjs express'
+        express: 'commonjs express',
+        ws: 'commonjs ws'
     },
     module: {
         loaders: [
@@ -33,5 +22,5 @@ module.exports = {
                 loader: 'ts-loader'
             }
         ]
-    },
+    }
 }

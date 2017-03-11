@@ -26,12 +26,14 @@
     "@types/react": "^15.0.12",
     "@types/react-dom": "^0.14.23",
     "@types/react-redux": "^4.4.36",
+    "@types/ws": "0.0.39",
     "express": "^4.14.1",
     "less": "^2.7.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "ws": "^2.2.0"
   },
   "devDependencies": {
     "css-loader": "^0.26.2",

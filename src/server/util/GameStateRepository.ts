@@ -31,5 +31,5 @@ class GameStateRepository {
     }
 }
 
-const gameStateRepository = new GameStateRepository();
-export default gameStateRepository;
+// const gameStateRepository = new GameStateRepository();
+// export default gameStateRepository;

@@ -21,7 +21,7 @@ export default class StateRepository {
             .then(output => output.Item as GameState);
     }
 
-    public put(state: State): Promise<void> {
+    public put(state: GameState): Promise<void> {
         let stateReq = this.db.put({
             TableName: 'mafia-react-dev-adam',
             Item: state

@@ -14,7 +14,8 @@ module.exports = {
     externals: {
         express: 'commonjs express',
         ws: 'commonjs ws',
-        'aws-sdk': 'commonjs aws-sdk'
+        'aws-sdk': 'commonjs aws-sdk',
+        redux: 'commonjs redux'
     },
     module: {
         loaders: [

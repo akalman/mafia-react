@@ -7,9 +7,16 @@ import * as url from 'url';
 import { createStore } from 'redux';
 
 import WebS from './WebSocket';
+import ServerState from './state/State';
 import reducers from './reducers';
 
-const store = createStore(reducers);
+let store = createStore<ServerState>(reducers, {
+    games: [],
+    normalizedGames: { },
+    gameEvents: { },
+    playerToGame: { },
+    gameToPlayers: { }
+});
 
 var app = express();
 const server = http.createServer(app);

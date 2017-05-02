@@ -3,7 +3,7 @@ import ws from '../../websocket';
 import { connect } from 'react-redux';
 
 import LoginPageProps from './LoginPageProps';
-import RoomRequestEvent from '../../../events/RoomRequestEvent';
+import RoomRequested from '../../../events/RoomRequested';
 
 require('./loginPage.less');
 
@@ -11,8 +11,8 @@ class LoginPage extends React.Component<LoginPageProps, {}> {
 
     createRoom(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
-        let event: RoomRequestEvent = {
-            type: 'RoomRequestEvent',
+        let event: RoomRequested = {
+            type: 'RoomRequested',
             hostid: this.props.playerid
         }
         ws.publish(event);

@@ -1,15 +1,16 @@
 import * as aws from 'aws-sdk';
-import State from '../../state/State';
+import GameState from '../../game/GameState';
 
 export default class StateRepository {
 
     private db: aws.DynamoDB.DocumentClient;
 
     constructor() {
+        aws.config.update({ region: "us-west-2" });
         this.db = new aws.DynamoDB.DocumentClient();
     }
 
-    public get(gameid: string): Promise<State> {
+    public get(gameid: string): Promise<GameState> {
         let stateReq = this.db.get({
             Key: { gameid: gameid },
             TableName: 'mafia-react-dev-adam'
@@ -17,10 +18,16 @@ export default class StateRepository {
 
         return stateReq
             .promise()
-            .then(output => output.Item as State);
+            .then(output => output.Item as GameState);
     }
 
     public put(state: State): Promise<void> {
-        return new Promise<void>(() => {});
+        let stateReq = this.db.put({
+            TableName: 'mafia-react-dev-adam',
+            Item: state
+        });
+
+        return stateReq.promise()
+            .then(output => { });
     }
 }

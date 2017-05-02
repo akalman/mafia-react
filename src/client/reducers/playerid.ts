@@ -1,7 +1,14 @@
 import { Reducer } from 'redux';
 
-const page: Reducer<any> = (state: any = {}, action: any) => {
-    return state;
+import Event from '../../events/Event';
+
+const page: Reducer<any> = (state: string, action: Event) => {
+    switch (action.type) {
+        case 'PlayerConnected':
+            return action.playerid;
+        default:
+            return state;
+    }
 };
 
 export default page;

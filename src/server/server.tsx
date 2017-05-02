@@ -4,21 +4,21 @@ import * as http from 'http';
 import * as WebSocket from 'ws';
 import * as aws from 'aws-sdk';
 import * as url from 'url';
-import handleEvent from 'state/handleEvent';
+import { createStore } from 'redux';
+
+import WebS from './WebSocket';
+import reducers from './reducers';
+
+const store = createStore(reducers);
 
 var app = express();
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server });
+
+const webs = new WebS(server, store.dispatch);
 
 app.use(express.static(path.join(__dirname, 'client')))
 
-wss.on('connection', ws => {
-    ws.on('message', message => {
-        
-    });
-});
-
-server.listen(80, function listening() {
+server.listen(3001, function listening() {
   console.log('Listening on %d', server.address().port);
 });
 

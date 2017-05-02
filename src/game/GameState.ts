@@ -1,20 +1,22 @@
-type State = {
-    GameId: string,
-    ownerid: string,
+import Phase from './Phase';
 
-    phase: 'conversation' | 'accusation' | 'lynching' | 'night' | 'unstarted';
+type GameState = {
+    GameId: string;
+    ownerid: string;
 
-    playerids: string[],
-    players: { [playerid: string]: Player },
+    phase: Phase;
 
-    roleids: { [playerid: string] : string },
-    roles: { [roleid: string]: Role }
+    playerids: string[];
+    players: { [playerid: string]: Player };
 
-    actionids: { [playerid: string] : string },
-    actions: { [actionid: string]: Action },
+    roleids: { [playerid: string] : string };
+    roles: { [roleid: string]: Role };
 
-    messageids: string[],
-    messages: { [messageid: string]: Message }
+    actionids: { [playerid: string] : string };
+    actions: { [actionid: string]: Action };
+
+    messageids: string[];
+    messages: { [messageid: string]: Message };
 };
 
 type Player = {
@@ -61,4 +63,4 @@ enum Roles {
 
 };
 
-export default State;
+export default GameState;

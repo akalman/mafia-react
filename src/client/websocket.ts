@@ -1,6 +1,6 @@
 import Event from '../events/Event';
 
-const ws = new WebSocket('ws://localhost');
+const ws = new WebSocket('ws://localhost:3001');
 
 type Subscriber = (e: Event) => void;
 class WebSocketMessenger {
@@ -25,7 +25,7 @@ class WebSocketMessenger {
 
     public publish(event: Event) {
         if (this.ready) {
-            this.ws.send(event);
+            this.ws.send(JSON.stringify(event));
         }
         else {
             this.queue.unshift(event);

@@ -3,14 +3,14 @@ import { render } from 'react-dom';
 
 import { createStore } from 'redux';
 import reducers from './reducers';
-import State from './state/State';
+import ClientState from './state/ClientState';
 
 import { Provider } from 'react-redux';
 import App from './components/app/App';
 
 require('./main.less');
 
-let store = createStore<State>(reducers, {
+let store = createStore<ClientState>(reducers, {
     playerid: '' + Math.random(),
     page: 'login'
 });

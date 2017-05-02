@@ -1,6 +1,9 @@
 import { Reducer } from 'redux';
 
-const page: Reducer<any> = (state: any = {}, action: any) => {
+import Page from '../state/Page';
+import Event from '../../events/Event';
+
+const page: Reducer<any> = (state: Page, action: Event) => {
     return state;
 };
 

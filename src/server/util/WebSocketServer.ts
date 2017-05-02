@@ -2,10 +2,13 @@ import * as WebSocket from 'ws';
 import * as http from 'http';
 import * as Redux from 'redux';
 
-import PlayerConnected from '../events/PlayerConnected';
-import Event from '../events/Event';
+import PlayerConnected from '../../events/PlayerConnected';
+import Event from '../../events/Event';
 
-export default class WebS {
+import server from './HttpServer';
+import store from './ReduxStore';
+
+class WebSocketServer {
     private wss: WebSocket.Server;
     private clients: { [playerid: string]: WebSocket } = { };
 
@@ -27,3 +30,6 @@ export default class WebS {
             .forEach(ws => ws.send(JSON.stringify(event)));
     }
 }
+
+const webSocketServer = new WebSocketServer(server, store.dispatch);
+export default webSocketServer;

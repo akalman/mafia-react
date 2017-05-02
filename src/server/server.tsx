@@ -1,27 +1,9 @@
 import * as express from 'express';
 import * as path from 'path';
-import * as http from 'http';
-import * as WebSocket from 'ws';
 import * as aws from 'aws-sdk';
-import * as url from 'url';
-import { createStore } from 'redux';
 
-import WebS from './WebSocket';
-import ServerState from './state/State';
-import reducers from './reducers';
-
-let store = createStore<ServerState>(reducers, {
-    games: [],
-    normalizedGames: { },
-    gameEvents: { },
-    playerToGame: { },
-    gameToPlayers: { }
-});
-
-var app = express();
-const server = http.createServer(app);
-
-const webs = new WebS(server, store.dispatch);
+import app from './util/ExpressApplication';
+import server from './util/HttpServer';
 
 app.use(express.static(path.join(__dirname, 'client')))
 

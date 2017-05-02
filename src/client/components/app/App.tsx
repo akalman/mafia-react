@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import AppProps from './AppProps';
+
 import TestComponent from '../testComponent/TestComponent';
 import LoginPage from '../loginPage/LoginPage';
 
 class App extends React.Component<AppProps, {}> {
-
     render() {
         switch (this.props.page) {
             case 'login':

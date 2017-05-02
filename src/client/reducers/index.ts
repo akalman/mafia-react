@@ -1,12 +1,13 @@
 import { Reducer, combineReducers } from 'redux';
 
-import State from '../state/State';
+import ClientState from '../state/ClientState';
+
 import page from './page';
 import playerid from './playerid';
 
-const mafiaApp: Reducer<State> = combineReducers<State>({
+const reducers: Reducer<ClientState> = combineReducers<ClientState>({
     page: page,
     playerid: playerid
 });
 
-export default mafiaApp;
+export default reducers;

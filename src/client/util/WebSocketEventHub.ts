@@ -1,9 +1,9 @@
-import Event from '../events/Event';
+import Event from '../../events/Event';
 
 const ws = new WebSocket('ws://localhost:3001');
 
 type Subscriber = (e: Event) => void;
-class WebSocketMessenger {
+class WebSocketEventHub {
     private queue: Event[];
     private ws: WebSocket;
     private ready: boolean;
@@ -49,5 +49,5 @@ class WebSocketMessenger {
     }
 }
 
-const webSocketMessenger = new WebSocketMessenger();
-export default webSocketMessenger;
+const webSocketEventHub = new WebSocketEventHub();
+export default webSocketEventHub;

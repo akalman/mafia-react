@@ -1,8 +1,7 @@
 import * as aws from 'aws-sdk';
 import GameState from '../../game/GameState';
 
-export default class StateRepository {
-
+class GameStateRepository {
     private db: aws.DynamoDB.DocumentClient;
 
     constructor() {
@@ -31,3 +30,6 @@ export default class StateRepository {
             .then(output => { });
     }
 }
+
+const gameStateRepository = new GameStateRepository();
+export default gameStateRepository;

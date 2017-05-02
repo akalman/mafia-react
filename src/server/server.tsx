@@ -4,6 +4,7 @@ import * as http from 'http';
 import * as WebSocket from 'ws';
 import * as aws from 'aws-sdk';
 import * as url from 'url';
+import handleEvent from 'state/handleEvent';
 
 var app = express();
 const server = http.createServer(app);
@@ -13,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'client')))
 
 wss.on('connection', ws => {
     ws.on('message', message => {
-        console.log('received: %s', message);
+        
     });
 });
 

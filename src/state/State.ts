@@ -1,5 +1,8 @@
 type State = {
-    phase: 'conversation' | 'accusation' | 'lynching' | 'night';
+    GameId: string,
+    ownerid: string,
+
+    phase: 'conversation' | 'accusation' | 'lynching' | 'night' | 'unstarted';
 
     playerids: string[],
     players: { [playerid: string]: Player },
@@ -57,3 +60,5 @@ enum Chatrooms {
 enum Roles {
 
 };
+
+export default State;

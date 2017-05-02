@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
 import AppProps from './AppProps';
 import TestComponent from '../testComponent/TestComponent';
-import LoginPage from '../loginPage/LoginPageAdapter';
+import LoginPage from '../loginPage/LoginPage';
 
-export default class App
-        extends React.Component<AppProps, any> {
+class App extends React.Component<AppProps, {}> {
 
     render() {
         switch (this.props.page) {
@@ -18,3 +18,8 @@ export default class App
         }
     }
 }
+
+const AppAdapter = connect(
+    state => ({ page: state.page })
+)(App);
+export default AppAdapter;

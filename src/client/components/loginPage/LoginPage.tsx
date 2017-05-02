@@ -1,13 +1,13 @@
 import * as React from 'react';
 import ws from '../../websocket';
+import { connect } from 'react-redux';
 
 import LoginPageProps from './LoginPageProps';
 import RoomRequestEvent from '../../../events/RoomRequestEvent';
 
 require('./loginPage.less');
 
-export default class LoginPage
-        extends React.Component<LoginPageProps, any> {
+class LoginPage extends React.Component<LoginPageProps, {}> {
 
     createRoom(e: React.MouseEvent<HTMLButtonElement>) {
         e.preventDefault();
@@ -40,3 +40,8 @@ export default class LoginPage
         );
     }
 }
+
+const LoginPageAdapter = connect(
+    state => ({ playerid: state.playerid })
+)(LoginPage);
+export default LoginPageAdapter;

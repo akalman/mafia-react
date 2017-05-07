@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     target: 'node',
     node: {
@@ -5,7 +7,7 @@ module.exports = {
     },
     entry: './src/server/server.tsx',
     output: {
-        path: 'output',
+        path: path.resolve(__dirname, 'output'),
         filename: 'server.js'
     },
     resolve: {
@@ -14,11 +16,10 @@ module.exports = {
     externals: {
         express: 'commonjs express',
         ws: 'commonjs ws',
-        'aws-sdk': 'commonjs aws-sdk',
         redux: 'commonjs redux'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'

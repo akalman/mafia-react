@@ -1,4 +1,4 @@
-import GameState from '../../game/GameState';
+import GameState from '../../game/types/GameState';
 import Event from '../../events/Event';
 
 type ServerState = {

@@ -1,7 +1,6 @@
-import RoomRequested from './RoomRequested';
-import RoomCreated from './RoomCreated';
-import PlayerConnected from './PlayerConnected';
+import GameStarted from './GameStarted';
+import PlayerReady from './PlayerReady';
 
-type Event = RoomRequested | RoomCreated | PlayerConnected;
+type Event = GameStarted | PlayerReady;
 
 export default Event;

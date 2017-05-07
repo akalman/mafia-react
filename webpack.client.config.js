@@ -1,19 +1,19 @@
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let extractTextPlugin = new ExtractTextPlugin('output/client/main.css');
 
 module.exports = {
     entry: './src/client/main.tsx',
     output: {
-        path: 'output/client',
+        path: path.resolve(__dirname, 'output/client'),
         filename: 'main.js'
     },
     resolve: {
         extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
                 loader: 'ts-loader'
@@ -21,17 +21,12 @@ module.exports = {
             {
                 test: /\.less$/,
                 loader: extractTextPlugin.extract({
-                    loader: 'css-loader!less-loader',
-                    fallbackLoader: 'style-loader'
+                    loader: 'css-loader!less-loader'
                 })
             }
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Mafia',
-            template: '!!html-loader!src/client/index.html'
-        }),
         extractTextPlugin
     ]
 }

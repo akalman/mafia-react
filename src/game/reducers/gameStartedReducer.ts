@@ -10,7 +10,7 @@ const playersToLookup = (players: Player[]): { [playerId: string]: Player } => {
     return lookup;
 }
 
-const gameStartedReducer = (state: GameState, event: GameStarted): GameState => {
+export default function gameStartedReducer(state: GameState, event: GameStarted): GameState {
     let players = createPlayers(event.playerIds);
 
     return {
@@ -24,4 +24,3 @@ const gameStartedReducer = (state: GameState, event: GameStarted): GameState => 
         messages: { }
     };
 }
-export default gameStartedReducer;

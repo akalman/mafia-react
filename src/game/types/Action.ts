@@ -20,4 +20,6 @@ type UnaryAction = {
 };
 
 type Action = BooleanAction | UnaryAction | LynchVote;
+
 export default Action;
+export { LynchVote, BooleanAction, UnaryAction };

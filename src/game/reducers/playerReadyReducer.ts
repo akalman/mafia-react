@@ -8,7 +8,7 @@ import iffn from '../functions/iffn';
 import setPlayerState from '../transforms/setPlayerState';
 import phaseShift from '../transforms/phaseShift';
 
-export default function gameStartedReducer(state: GameState, event: PlayerReady): GameState {
+export default function playerReadyReducer(state: GameState, event: PlayerReady): GameState {
     if (state.phase !== event.phase) {
         return state;
     }

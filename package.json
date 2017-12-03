@@ -1,0 +1,32 @@
+{
+  "name": "mafia-react",
+  "version": "0.1.0",
+  "description": "a semi-guided rendition of mafia meant to be played on phones",
+  "main": "output/server.js",
+  "scripts": {
+    "clean": "rm -rf output",
+    "build": "npm run clean && webpack",
+    "test": ";",
+    "start": "echo run 'node output/server.js' instead"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akalman/mafia-react.git"
+  },
+  "author": "Adam Kalman <dkeka.zkfaks+github@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akalman/mafia-react/issues"
+  },
+  "homepage": "https://github.com/akalman/mafia-react#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2",
+    "html-webpack-plugin": "^2.30.1",
+    "serve-static": "^1.13.1",
+    "webpack": "^3.9.1",
+    "webpack-node-externals": "^1.6.0"
+  }
+}

@@ -19,12 +19,12 @@ const onReady = callback => {
 
 socket.addEventListener('message', function (event) {
     Object.keys(listeners).forEach(id => {
-      listeners[id](event.data);
+      listeners[id](JSON.parse(event.data));
     });
 });
 
 export default {
-  send: msg => socket.send(msg),
+  send: msg => socket.send(JSON.stringify(msg)),
   onReady: onReady,
   register: register
 }

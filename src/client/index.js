@@ -4,8 +4,8 @@ import ReactDom from 'react-dom';
 import api from './api';
 import App from './app';
 
-api.onReady(() => api.send('Application Connected'));
-api.register(data => alert(data));
+api.onReady(() => api.send({ type: 'client-connected' }));
+api.register(data => alert(JSON.stringify(data)));
 
 const root = document.getElementById('react-root');
 ReactDom.render(<App />, root);

@@ -1,9 +1,11 @@
-const socket = new WebSocket('ws://localhost:3000');
+import React from 'react';
+import ReactDom from 'react-dom';
 
-socket.addEventListener('open', function (event) {
-    socket.send('Hello Server!');
-});
+import api from './api';
+import App from './app';
 
-socket.addEventListener('message', function (event) {
-    alert(event.data);
-});
+api.onReady(() => api.send('Application Connected'));
+api.register(data => alert(data));
+
+const root = document.getElementById('react-root');
+ReactDom.render(<App />, root);

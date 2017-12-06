@@ -16,7 +16,7 @@ export default class DebugEventSender extends React.PureComponent {
       <div>
         <div>Debug Event Sender</div>
         <div>
-          <textarea style={ { height: 200 } }
+          <textarea style={ { height: 200, width: 400 } }
                     value={ this.state.message }
                     onChange={ e => this.setState({ message: e.target.value }) } />
         </div>

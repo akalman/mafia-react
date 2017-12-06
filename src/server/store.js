@@ -1,10 +1,7 @@
 import { createStore } from 'redux';
-import { Map } from 'immutable';
 
-const reducer = (state, action) => state;
+import reducer from './reducer'
 
-const store = createStore(reducer, Map({
-
-}));
+const store = createStore(reducer, { });
 
 export default store;

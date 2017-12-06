@@ -1,9 +1,9 @@
 import React from 'react';
 
-import DebugEventSender from './components/debug-event-sender';
+import DebugView from './components/debug-view';
 
 export default class App extends React.PureComponent {
   render() {
-    return (<DebugEventSender />);
+    return (<DebugView />);
   }
 }

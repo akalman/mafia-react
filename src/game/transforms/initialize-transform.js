@@ -6,8 +6,9 @@ export default (state, action) => {
     state: NOT_STARTED,
     result: NONE,
 
-    players: [],
+    players: [ ],
+    playerStates: { },
 
-    logs: []
+    logs: [ ]
   };
 }

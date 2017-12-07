@@ -11,7 +11,13 @@ export default {
 
       ws.on('message', msg => {
         console.log(`${id}: ${msg}`);
-        store.dispatch(JSON.parse(msg));
+
+        // TODO: don't allow client to override sender
+        // this is dependent on games being created with proper player ids
+        const event = JSON.parse(msg);
+        event.sender = event.sender || id;
+
+        store.dispatch(event);
       });
 
       ws.on('close', () => {

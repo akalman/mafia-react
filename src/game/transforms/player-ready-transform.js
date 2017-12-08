@@ -1,11 +1,10 @@
-import endGameInError from './components/end-game-in-error';
-import log from './components/log';
-import { ALIVE } from '../character-states';
-import { GAME_STARTED } from '../event-types';
-import { NOT_STARTED, FIRST_DAY } from '../game-states';
-import compose from '../../functional/compose';
+import stateTransition from './components/state-transition';
 
 export default (state, action) => {
+  if (state.state === 'INTERMISSION') {
+    return state;
+  }
+
   const readiedState = Object.assign({ }, state, {
     playerStates: Object.assign({ }, state.playerStates, {
       [action.sender]: Object.assign({ }, state.playerStates[action.sender], {
@@ -13,6 +12,12 @@ export default (state, action) => {
       })
     })
   });
+
+  const allPlayersReady = Object.values(readiedState.playerStates)
+    .every(playerState => playerState.ready);
+  if (allPlayersReady) {
+    return stateTransition()(readiedState);
+  }
 
   return readiedState;
 }

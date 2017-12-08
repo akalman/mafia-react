@@ -1,9 +1,22 @@
 export const NOT_STARTED = 'NOT_STARTED';
 export const FIRST_DAY = 'FIRST_DAY';
+export const DAY_CONVERSATION = 'DAY_CONVERSATION';
+export const DAY_ACUSATION = 'DAY_ACUSATION';
+export const DAY_CONDEMNATION = 'DAY_CONDEMNATION';
+export const NIGHT = 'NIGHT';
+export const INTERMISSION = 'INTERMISSION';
 export const FINISHED = 'FINISHED';
 
 export default {
   NOT_STARTED,
   FIRST_DAY,
+
+  DAY_CONVERSATION,
+  DAY_ACUSATION,
+  DAY_CONDEMNATION,
+
+  NIGHT,
+
+  INTERMISSION,
   FINISHED
 };

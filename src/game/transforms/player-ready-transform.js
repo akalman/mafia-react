@@ -1,7 +1,7 @@
 import stateTransition from './components/state-transition';
 
 export default (state, action) => {
-  if (state.state === 'INTERMISSION') {
+  if (['INTERMISSION'].includes(state.state)) {
     return state;
   }
 

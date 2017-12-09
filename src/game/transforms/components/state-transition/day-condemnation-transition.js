@@ -1,9 +1,9 @@
-import { DAY_ACUSATION } from '../../../game-states'
+import { NIGHT } from '../../../game-states'
 
 export default () => {
    return (state) => {
      return Object.assign({ }, state, {
-       state: DAY_ACUSATION
+       state: NIGHT
      });
    };
 };

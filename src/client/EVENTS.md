@@ -39,6 +39,30 @@ use this event to set the ready state of a given player.
 }
 ```
 
+### SET_ACUSATION_TARGET
+
+use this event to acuse someone during the acusation phase
+
+```
+{
+  "type": "SET_ACUSATION_TARGET",
+  "sender": 1,
+  "target": 2
+}
+```
+
+##### deleting your vote
+
+send any falsey target to remove your vote
+
+```
+{
+  "type": "SET_ACUSATION_TARGET",
+  "sender": 1,
+  "target": false
+}
+```
+
 ### FORCE_END
 
 use this event to force the game into a finished state.  ignores any current state while doing this.

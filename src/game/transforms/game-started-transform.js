@@ -33,7 +33,11 @@ export default (state, action) => {
 
         return playerStates;
       },
-      { })
+      { }),
+
+    actions: { },
+    acusations: { },
+    votes: { }
 
   });
 }

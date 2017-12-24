@@ -4,4 +4,4 @@ const reducer = (state = { }, action) => {
   return action.state;
 }
 
-export default createStore(reducer);
+export default createStore(reducer, { });

@@ -20,6 +20,9 @@ to build and run the server, use the following commands.
 ```
 npm run build
 node output/server.js
+
+# to start the server in debug mode, use this command instead
+debug=true node output/server.js
 ```
 
 note that the last line will not finish, you will need to close the server

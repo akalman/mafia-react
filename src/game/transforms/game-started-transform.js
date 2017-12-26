@@ -3,7 +3,18 @@ import log from './components/log';
 import { ALIVE } from '../character-states';
 import { GAME_STARTED } from '../event-types';
 import { NOT_STARTED, FIRST_DAY } from '../game-states';
+import * as roles from '../roles';
 import compose from '../../functional/compose';
+
+let gaveMafia = false;
+const getRole = () => {
+  if (gaveMafia) {
+    return roles.VILLAGER;
+  }
+
+  gaveMafia = true;
+  return roles.MAFIOSO;
+}
 
 export default (state, action) => {
   if (state.state !== NOT_STARTED) {
@@ -28,7 +39,8 @@ export default (state, action) => {
       (playerStates, player) => {
         playerStates[player] = {
           ready: false,
-          characterState: ALIVE
+          characterState: ALIVE,
+          role: getRole()
         };
 
         return playerStates;

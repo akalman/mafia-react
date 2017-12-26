@@ -9,6 +9,12 @@ export default (state, action) => {
     players: [ ],
     playerStates: { },
 
+    actions: { },
+    acusations: { },
+    votes: { },
+
+    acused: '',
+
     logs: [ ]
   };
 }

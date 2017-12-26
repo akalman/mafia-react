@@ -68,6 +68,10 @@ export default class DebugEventSender extends React.PureComponent {
           <button type="button" onClick={ () => api.send(PLAYER_READY(this.state.PLAYER_READY_VALUE)) }>
             PLAYER_READY
           </button>
+          <button type="button"
+                  onClick={ () => ['1', '2', '3', '4', '5'].forEach(player => api.send(PLAYER_READY(player))) }>
+            ALL PLAYER_READY
+          </button>
         </div>
         <div>
           <select value={ this.state.ACUSER } onChange={ e => this.setState({ ACUSER: e.target.value }) }>

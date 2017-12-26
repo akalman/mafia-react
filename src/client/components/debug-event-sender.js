@@ -1,6 +1,7 @@
 import React from 'react';
 
 import api from '../api';
+import votes from '../../game/vote-options';
 
 const INITIALIZE = () => ({ type: 'INITIALIZE' });
 const GAME_STARTED = () => ({
@@ -16,6 +17,11 @@ const SET_ACUSATION_TARGET = (a, b) => ({
   sender: a,
   target: b
 });
+const SET_CONDEMNATION_VOTE = (a, b) => ({
+  type: 'SET_CONDEMNATION_VOTE',
+  sender: a,
+  target: b
+});
 const FORCE_END = () => ({ type: 'FORCE_END'});
 
 export default class DebugEventSender extends React.PureComponent {
@@ -26,7 +32,9 @@ export default class DebugEventSender extends React.PureComponent {
       message: '',
       PLAYER_READY_VALUE: '1',
       ACUSER: '1',
-      ACUSEE: false
+      ACUSEE: false,
+      VOTER: '1',
+      FATE: false
     }
   }
 
@@ -91,6 +99,23 @@ export default class DebugEventSender extends React.PureComponent {
           </select>
           <button type="button" onClick={ () => { if (this.state.ACUSER !== this.state.ACUSEE) api.send(SET_ACUSATION_TARGET(this.state.ACUSER, this.state.ACUSEE)); } }>
             SET_ACUSATION_TARGET
+          </button>
+        </div>
+        <div>
+          <select value={ this.state.VOTER } onChange={ e => this.setState({ VOTER: e.target.value }) }>
+            <option value="1">Player 1</option>
+            <option value="2">Player 2</option>
+            <option value="3">Player 3</option>
+            <option value="4">Player 4</option>
+            <option value="5">Player 5</option>
+          </select>
+          <select value={ this.state.FATE } onChange={ e => this.setState({ FATE: e.target.value == 'false' ? false : e.target.value }) }>
+            <option value={ votes.INNOCENT }>Innocent</option>
+            <option value={ votes.GUILTY }>Guilty</option>
+            <option value="false">Abstain</option>
+          </select>
+          <button type="button" onClick={ () => api.send(SET_CONDEMNATION_VOTE(this.state.VOTER, this.state.FATE)) }>
+            SET_CONDEMNATION_VOTE
           </button>
         </div>
         <div>

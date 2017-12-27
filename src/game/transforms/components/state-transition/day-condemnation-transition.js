@@ -1,5 +1,9 @@
+import compose from '../../../../functional/compose';
 import { NIGHT } from '../../../game-states';
 import votes from '../../../vote-options';
+import killPlayer from '../kill-player';
+import checkGameState from '../check-game-end';
+
 
 export default () => {
   return (state) => {
@@ -17,8 +21,10 @@ export default () => {
       .length;
 
     if (guiltyVotes > innocentVotes) {
-      //TODO: kill player and check for game end
-      console.log('killing player goes here')
+      return compose (
+        killPlayer(state.acused),
+        checkGameState()
+      )(newState);
     }
 
     return newState;

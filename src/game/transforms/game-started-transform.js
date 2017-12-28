@@ -9,11 +9,11 @@ import compose from '../../functional/compose';
 let gaveMafia = false;
 const getRole = () => {
   if (gaveMafia) {
-    return roles.VILLAGER;
+    return roles.VILLAGER.type;
   }
 
   gaveMafia = true;
-  return roles.MAFIOSO;
+  return roles.MAFIOSO.type;
 }
 
 export default (state, action) => {

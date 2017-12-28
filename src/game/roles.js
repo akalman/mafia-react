@@ -1,5 +1,11 @@
 import teams from './teams';
 import actionTypes from './action-types';
+import { ALIVE } from './character-states';
+
+const rolesById = {
+  VILLAGER_ID: VILLAGER,
+  MAFIOSO_ID: MAFIOSO
+};
 
 const VILLAGER_ID = 'VILLAGER';
 export const VILLAGER = {
@@ -17,6 +23,14 @@ export const MAFIOSO = {
   team: teams.MAFIA,
   action: {
     type: actionTypes.UNARY,
-    effect: MAFIOSO_ID
+    effect: MAFIOSO_ID,
+    targets: (state, actor) => {
+      return state.players
+        .filter(player => player !== actor)
+        .filter(player => state.playerStates[player].characterStates[ALIVE])
+        .filter(player => rolesById[state.playerStates[player].role].team !== teams.MAFIA);
+    }
   }
 };
+
+export default rolesById;

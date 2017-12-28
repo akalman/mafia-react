@@ -22,6 +22,11 @@ const SET_CONDEMNATION_VOTE = (a, b) => ({
   sender: a,
   target: b
 });
+const SET_UNARY_ACTION = (a, b) => ({
+  type: 'SET_ACTION_TARGET',
+  sender: a,
+  target: b
+});
 const FORCE_END = () => ({ type: 'FORCE_END'});
 
 export default class DebugEventSender extends React.PureComponent {
@@ -34,7 +39,9 @@ export default class DebugEventSender extends React.PureComponent {
       ACUSER: '1',
       ACUSEE: false,
       VOTER: '1',
-      FATE: false
+      FATE: false,
+      ACTER: '1',
+      ACTEE: '1'
     }
   }
 
@@ -116,6 +123,25 @@ export default class DebugEventSender extends React.PureComponent {
           </select>
           <button type="button" onClick={ () => api.send(SET_CONDEMNATION_VOTE(this.state.VOTER, this.state.FATE)) }>
             SET_CONDEMNATION_VOTE
+          </button>
+        </div>
+        <div>
+          <select value={ this.state.ACTER } onChange={ e => this.setState({ ACTER: e.target.value }) }>
+            <option value="1">Player 1</option>
+            <option value="2">Player 2</option>
+            <option value="3">Player 3</option>
+            <option value="4">Player 4</option>
+            <option value="5">Player 5</option>
+          </select>
+          <select value={ this.state.ACTEE } onChange={ e => this.setState({ ACTEE: e.target.value == 'false' ? false : e.target.value }) }>
+            <option value="1">Player 1</option>
+            <option value="2">Player 2</option>
+            <option value="3">Player 3</option>
+            <option value="4">Player 4</option>
+            <option value="5">Player 5</option>
+          </select>
+          <button type="button" onClick={ () => api.send(SET_UNARY_ACTION(this.state.ACTER, this.state.ACTEE)) }>
+            SET_ACTION_TARGET
           </button>
         </div>
         <div>
